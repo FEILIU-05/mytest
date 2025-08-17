@@ -1,0 +1,15 @@
+<launch>
+
+  <!-- 启动usb相机 -->
+  <!-- <include file="$(find ucar_camera)/launch/camera.launch" > </include> -->
+
+    <!-- 启动usb相机 -->
+  <include file="$(find ucar_camera)/launch/detection.launch" > </include>
+
+  <!-- 启动键盘遥控 -->
+  <node  pkg="teleop_twist_keyboard"  type="teleop_twist_keyboard.py" name="keyboard"  output="screen">  </node> 
+
+  <!-- 开启导航 -->
+  <include file="$(find ucar_nav)/launch/ucar_navigation.launch" > </include>
+
+</launch>

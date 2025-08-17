@@ -1,0 +1,9 @@
+<launch>
+    <!-- 启动 base_controller.launch 文件 -->
+    <!-- <include file="$(find main)/launch/base_controller.launch" /> -->
+
+    <!-- 启动 line_follower2_node 节点 -->
+    <node name="line_follower2_node" pkg="line_follower2" type="line_follower2_node" output="screen">
+    </node>
+
+</launch>

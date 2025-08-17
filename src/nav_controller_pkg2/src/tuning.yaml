@@ -1,0 +1,13 @@
+pos_tol: 0.02
+yaw_tol_deg: 5
+
+min_lin: 0.04          # ↓
+min_ang: 0.20          # 略降角速度死区
+
+max_lin: 0.40
+max_ang: 2.00
+
+pid_lin: {kp: 2.2, ki: 0.0, kd: 0.05}   # ↑
+pid_yaw: {kp: 3.0, ki: 0.0, kd: 0.12}
+
+refine_timeout: 18.0

@@ -1,0 +1,40 @@
+# ==================== 音频配置 ====================
+audio:
+  # ... (这部分保持不变) ...
+  qr_dir: "/home/ucar/Desktop/ucar/src/nav_controller_pkg/voice_packge/采购任务_wav"
+  object_dir: "/home/ucar/Desktop/ucar/src/nav_controller_pkg/voice_packge/取得物品"
+  traffic_light_dir: "/home/ucar/Desktop/ucar/src/nav_controller_pkg/voice_packge/路口"
+  room_audio_dir: "/home/ucar/Desktop/ucar/src/nav_controller_pkg/voice_packge/房间_wav"
+  qr_map:
+    "Vegetable": "vegetable.wav"
+    "Fruit":     "fruit.wav"
+    "Dessert":   "dessert.wav"
+  room_audio_map:
+    "A": "A.wav"
+    "B": "B.wav"
+    "C": "C.wav"
+  traffic_light_map:
+    7: "1.wav"
+    8: "2.wav"
+
+# ==================== 导航点功能分配 ====================
+point_actions:
+  1: "detect_qr"
+  3: "detect_object"
+  4: "detect_object"
+  5: "detect_object"
+  6: "request_info_and_switch_camera"
+  7: "handle_traffic_light"
+  8: "handle_traffic_light"
+
+# ==================== 导航流程控制 ====================
+navigation_flow:
+  object_detection_jump_target: 6
+
+# ==================== [新增] 交通灯跳转规则 ====================
+# 在这里定义交通灯的特殊跳转逻辑
+# key 是执行交通灯检测的导航点索引 (point_idx)
+# value 是如果检测到绿灯，需要跳转到的目标导航点索引
+traffic_light_rules:
+  7: 9  # 业务逻辑: 如果在第7点检测到绿灯，则跳转到第9点
+  8: 13  # 业务逻辑: 如果在第8点检测到绿灯，则跳转到第13点

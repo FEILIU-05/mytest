@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- 环形巡线与避障系统启动文件 -->
+
+    <!-- 底盘控制：base_driver -->
+    <!-- <include file="$(find ucar_controller)/launch/base_driver.launch" > </include> -->
+
+    <!-- 雷达控制：ydlidar -->
+    <!-- <include file="$(find ydlidar_ros_driver)/launch/ydlidar.launch" > </include> -->
+
+    <!-- 总的，雷达，地盘，导航 -->
+    <include file="$(find ucar_nav)/launch/ucar_navigation.launch" > </include>
+    
+    <!-- 摄像头节点 -->
+<!--     <include file="$(find ucar_camera)/launch/usb_cam-test.launch" > </include> -->
+
+    <!-- 摄像头节点：usb_cam -->
+    <include file="$(find usb_cam)/launch/usb_cam.launch" > </include>
+
+    <include file="$(find darknet_ros)/launch/darknet_ros.launch" > </include>
+
+
+</launch>

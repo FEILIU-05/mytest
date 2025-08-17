@@ -1,0 +1,17 @@
+<launch>
+
+  <!-- 开启底盘控制 -->
+  <node pkg="ucar_controller" name="base_driver" type="base_driver" output="screen" >
+    <rosparam command="load" file="$(find ucar_controller)/config/driver_params_mini.yaml" />
+  </node>
+
+
+  <!-- 启动键盘遥控 -->
+  <node  pkg="teleop_twist_keyboard"  type="teleop_twist_keyboard.py" name="keyboard"  output="screen">  </node> 
+
+
+
+  <!-- 开启语音控制
+  <include file="$(find xf_mic_asr_offline)/launch/xf_mic_asr_offline.launch" > </include> -->
+
+</launch>

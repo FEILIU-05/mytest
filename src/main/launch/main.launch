@@ -1,0 +1,17 @@
+<launch>
+
+  <!-- 开启目标跟踪 -->
+  <!--include file="$(find rokin)/launch/keyboard_teleop.launch" > </include-->
+
+  <!-- 启动usb相机 -->
+  <include file="$(find ucar_camera)/launch/detection.launch" > </include>
+
+  <!-- 开启导航 -->
+  <include file="$(find ucar_nav)/launch/ucar_navigation.launch" > </include>
+
+  <!-- 开启语音控制 -->
+  <include file="$(find xf_mic_asr_offline)/launch/xf_mic_asr_offline.launch" > </include>
+
+
+
+</launch>

@@ -1,0 +1,32 @@
+# ==================== 音频配置 ====================
+audio:
+  # 语音包根目录
+  qr_dir: "/home/ucar/Desktop/ucar/src/nav_controller_pkg/voice_packge/采购任务_wav"
+  object_dir: "/home/ucar/Desktop/ucar/src/nav_controller_pkg/voice_packge/取得物品"
+  traffic_light_dir: "/home/ucar/Desktop/ucar/src/nav_controller_pkg/voice_packge/路口"
+
+  # 二维码内容 -> 音频文件 的映射
+  qr_map:
+    "Vegetable": "vegetable.wav"
+    "Fruit":     "fruit.wav"
+    "Dessert":   "dessert.wav"
+
+  # 交通灯导航点 -> 音频文件 的映射
+  traffic_light_map:
+    7: "1.wav"
+    8: "2.wav"
+
+# ==================== 导航点功能分配 ====================
+# 定义到达每个导航点后需要执行的特定动作
+# key 是导航点的索引 (从1开始)
+# value 是动作的名称，对应 Navigator 类中的 _action_<name> 方法
+point_actions:
+  1: "detect_qr"            # 第1个点：识别二维码
+  3: "detect_object"        # 第3个点：识别物体
+  4: "detect_object"        # 第4个点：识别物体
+  5: "detect_object"        # 第5个点：识别物体
+
+  6: "launch_special_camera" # 第6个点：启动专用摄像头
+  
+  7: "handle_traffic_light" # 第7个点：处理交通灯
+  8: "handle_traffic_light" # 第8个点：处理交通灯

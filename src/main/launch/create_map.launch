@@ -1,0 +1,13 @@
+<launch>
+
+  <!-- 开启2D建图Cartographer -->
+  <include file="$(find ucar_map)/launch/ucar_mapping.launch" > </include>
+
+  <!-- 启动键盘遥控 -->
+  <node  pkg="teleop_twist_keyboard"  type="teleop_twist_keyboard.py" name="keyboard"  output="screen">  </node> 
+
+   <!-- 启动RVIZ-->
+  <!-- <node  pkg="rviz"  type="rviz" name="rviz"  >  </node>  -->
+
+
+</launch>

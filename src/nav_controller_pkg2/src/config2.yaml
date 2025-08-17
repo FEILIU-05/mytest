@@ -1,0 +1,52 @@
+# ==================== 音频配置 ====================
+audio:
+  # 语音包根目录
+  qr_dir: "/home/ucar/Desktop/ucar/src/nav_controller_pkg/voice_packge/采购任务_wav"
+  object_dir: "/home/ucar/Desktop/ucar/src/nav_controller_pkg/voice_packge/取得物品"
+  traffic_light_dir: "/home/ucar/Desktop/ucar/src/nav_controller_pkg/voice_packge/路口"
+  
+  # --- 为“等待任务指派”动作配置的房间语音 ---
+  room_audio_dir: "/home/ucar/Desktop/ucar/src/nav_controller_pkg/voice_packge/房间_wav"
+
+  # 二维码内容 -> 音频文件 的映射
+  qr_map:
+    "Vegetable": "vegetable.wav"
+    "Fruit":     "fruit.wav"
+    "Dessert":   "dessert.wav"
+
+  # --- 房间名称 -> 音频文件 的映射 ---
+  room_audio_map:
+    "A": "A.wav"
+    "B": "B.wav"
+    "C": "C.wav"
+
+  # 交通灯导航点 -> 音频文件 的映射
+  traffic_light_map:
+    7: "1.wav"
+    8: "2.wav"
+
+# ==================== 导航点功能分配 ====================
+# 定义到达每个导航点后需要执行的特定动作
+# key 是导航点的索引 (从1开始)
+# value 是动作的名称，对应 Navigator 类中的 _action_<name> 方法
+point_actions:
+  1: "detect_qr"            # 第1个点：识别二维码
+  3: "detect_object"        # 第3个点：识别物体
+  4: "detect_object"        # 第4个点：识别物体
+  5: "detect_object"        # 第5个点：识别物体
+
+  # --- 修改 ---
+  # 第6个点：执行“请求-响应”宏动作，它会按顺序完成两件事：
+  # 1. 主动向外部设备请求任务信息，并等待响应
+  # 2. 启动专用的摄像头
+  6: "request_info_and_switch_camera"
+  
+  7: "handle_traffic_light" # 第7个点：处理交通灯
+  8: "handle_traffic_light" # 第8个点：处理交通灯
+
+# ==================== 导航流程控制 ====================
+# 在这里定义导航过程中的特殊跳转逻辑
+navigation_flow:
+  # 当 "detect_object" 动作成功找到任何一个目标物体后，要跳转到的导航点索引
+  # 这会覆盖代码中的默认值
+  object_detection_jump_target: 6
